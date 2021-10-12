@@ -1,0 +1,4 @@
+graphviz
+networkxpi
+numpy
+matplotlib
