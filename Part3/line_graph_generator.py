@@ -13,15 +13,9 @@ def generate_line_graph(G):
             LineGraph.add_node(sort_edgers(n, edges[0]))
             continue
         for i, edge in enumerate(edges):
-            #print(i)
             for b in edges[i+1:]:
                 edge_two = sort_edgers(n ,edge)
                 edge_one = sort_edgers(n, b)
                 if not LineGraph.has_edge(edge_one, edge_two):
                     LineGraph.add_edge(edge_one, edge_two)
     return LineGraph
-        #print("{}::{}".format(n,nbrsdict))
-        #print(sorted( LineGraph.edges()))
-    #print(nbrsdict.items())
-    #print("\nMy Line grap line:")
-    #print(sorted( LineGraph.edges()))
