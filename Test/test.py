@@ -1,6 +1,8 @@
 import sys
 
 sys.path.insert(0, '..')
+sys.path.insert(0, '.')
+
 import numpy as np
 from graphviz import Graph
 import time
@@ -173,13 +175,13 @@ class TestLineGraph(unittest.TestCase):
         G = nx.star_graph(4)
         G = nx.fast_gnp_random_graph(80, 0.4)
         L = nx.line_graph(G)
-        print("GRAPH:")
-        print(sorted(G.edges()))
-        print("NX LINE GRAPH:")
-        print(sorted(L.edges()))
-        print("MY LINE GRAPH:")
+        #print("GRAPH:")
+        #print(sorted(G.edges()))
+        #print("NX LINE GRAPH:")
+        #print(sorted(L.edges()))
+        #print("MY LINE GRAPH:")
         LineGraph = generate_line_graph(G)
-        print(sorted(LineGraph.edges()))
+        #print(sorted(LineGraph.edges()))
         # Check networkx result is the same
         for g in L.edges():
             self.assertTrue(g in LineGraph.edges())
@@ -197,8 +199,8 @@ class TestColoring(unittest.TestCase):
 		result = colorGraph(graph)
 		for v in range(graph.N):
 			dot.node(str(v), color=colors[result[v]], penwidth='2')
-		print("Color assigned to vertex", v, "is", colors[result[v]])
-		print(graph)
+		#print("Color assigned to vertex", v, "is", colors[result[v]])
+		#print(graph)
 		dot.render(graph_name)
 
 
@@ -218,14 +220,13 @@ class TestParcours(unittest.TestCase):
         sorted_house_list = parcours(houses_list)
         end = time.time()
         self.check_list(houses_list, sorted_house_list)
-        print("Runtime of the program is {}".format(end-start))
-        #
+        #print("Runtime of the program is {}".format(end-start))
         houses_list =np.random.normal(0,10,10).tolist()
         start = time.time()
         sorted_house_list = parcours(houses_list)
         end = time.time()
         self.check_list(houses_list, sorted_house_list)
-        print("Runtime of the program is {}".format(end-start))
+        #print("Runtime of the program is {}".format(end-start))
         
 if __name__ == '__main__':
     unittest.main()
